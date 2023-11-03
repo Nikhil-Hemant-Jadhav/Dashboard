@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video/Audio to Text Converter</title>
+    <style>
+        /* Set the background to orange and text color to white */
+        body {
+            background-color: orange;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Add Welcome User message in Navy Blue with margin */
+        .welcome-message {
+            color: navy;
+            font-size: 20px;
+            margin-bottom: 20px; /* Add margin to create distance */
+        }
+
+        /* Typewriter text animation */
+        .typewriter-animation {
+            overflow: hidden;
+            border-right: .15em solid white;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 9s steps(30, end) infinite;
+            width: 0;
+            display: inline-block;
+        }
+
+        @keyframes typing {
+            to { width: 100%; }
+        }
+
+        /* Glowing button animation */
+        .glowing-button {
+            animation: glowing 1.5s infinite;
+        }
+
+        @keyframes glowing {
+            0% { box-shadow: 0 0 5px #ff0000; }
+            50% { box-shadow: 0 0 20px #ff0000; }
+            100% { box-shadow: 0 0 5px #ff0000; }
+        }
+
+        /* Center align the heading */
+        h1 {
+            text-align: center;
+            margin-top: 50px; /* Adjust margin as needed */
+        }
+
+        /* Table styles */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th.menu-name, td.menu-name {
+            background-color: #0039a6; /* Set background color */
+            color: white; /* Set text color */
+        }
+
+        th.type, td.type {
+            background-color: #0039a6; /* Set background color */
+            color: white; /* Set text color */
+        }
+
+        th.size, td.size {
+            background-color: #0039a6; /* Set background color */
+            color: white; /* Set text color */
+        }
+
+        th.duration, td.duration {
+            background-color: #0039a6; /* Set background color */
+            color: white; /* Set text color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Video/Audio to Text Converter</h1>
+
+    <!-- Welcome User message with margin -->
+    <div class="welcome-message">Welcome User..!</div>
+
+    <form method="POST" enctype="multipart/form-data" action="/convert">
+        <input type="file" name="file" class="glowing-button">
+        <input type="submit" value="Convert" class="glowing-button">
+    </form>
+
+    <!-- Typewriter animation on Transcribed Text -->
+    <h2>Transcribed Text:</h2>
+    <p class="typewriter-animation" style="color: blue;">{{ text }}</p>
+
+    <!-- Table to display formatted file information with specified colors -->
+    <h2>File Information</h2>
+    <table>
+        <tr>
+            <th class="menu-name">Menu Name</th>
+            <th class="type">Type</th>
+            <th class="size">Size</th>
+            <th class="duration">Duration</th>
+        </tr>
+
+        {% for file in file_info %}
+        <tr>
+            <td class="menu-name">{{ file[0] }}</td> <!-- File Name -->
+            <td class="type">{{ file[1] }}</td> <!-- File Type -->
+            <td class="size">{{ file[2] }} bytes</td> <!-- File Size in bytes -->
+            <td class="duration">{{ file[3] }} seconds</td> <!-- File Duration in seconds -->
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
