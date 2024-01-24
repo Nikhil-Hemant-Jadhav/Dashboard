@@ -33,6 +33,6 @@ Contributions to enhance and expand the functionality of the application are wel
 
 ## Contact:
 
-For any inquiries or feedback, please reach out to [Your Email Address].
+For any inquiries or feedback, please reach out to [nj820201@gmail.com].
 
 Thank you for exploring our Speech Transcription Web App!
